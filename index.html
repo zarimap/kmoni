@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>自分用 強震モニタ</title>
+  <title>強震モニタ</title>
   <!-- 強震モニタのレイアウト・地図表示に必要な最小限のCSS -->
   <link rel="stylesheet" href="https://s.yimg.jp/images/weather/pc/v2/css/earthquake-1.0.0.css">
   <link rel="stylesheet" href="https://s.yimg.jp/images/weather/pc/v2/css/kyoshin-1.0.1.css">
@@ -34,26 +34,6 @@
     <div class="monitor">
       <div id="kyoshin_monitor_app"></div>
     </div>
-
-    <!-- 震度凡例（不要であればこのdivブロックごと削除可） -->
-    <div class="earthquakeMonitorView_legend earthquakeMonitorView_legend-point">
-      <p class="legend_ttl">リアルタイム震度</p>
-      <ul class="earthquakeMonitorView_legend_list">
-        <li class="icon_ksi icon_ksi-0"><span>震度</span>0</li>
-        <li class="icon_ksi icon_ksi-1"><span>震度</span>1</li>
-        <li class="icon_ksi icon_ksi-2"><span>震度</span>2</li>
-        <li class="icon_ksi icon_ksi-3"><span>震度</span>3</li>
-        <li class="icon_ksi icon_ksi-4"><span>震度</span>4</li>
-        <li class="icon_ksi icon_ksi-5"><span>震度</span>5</li>
-        <li class="icon_ksi icon_ksi-6"><span>震度</span>6</li>
-        <li class="icon_ksi icon_ksi-7"><span>震度</span>7</li>
-        <li class="icon_ksi icon_ksi-8"><span class="icoEpicenter_k"><span>震央</span></span>震央</li>
-      </ul>
-      <p class="bousaiLogo">
-        <img src="https://s.yimg.jp/images/weather/pc/v2/img/earthquake/img_kyoshin_bousaiLogo.png" alt="防災科学技術研究所">
-      </p>
-    </div>
-  </div>
 
   <!-- 描画スクリプトの動的読み込み（現在時刻を自動セット） -->
   <script>
