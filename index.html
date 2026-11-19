@@ -1,444 +1,77 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-
 <head>
-  
-
-  
-    <script>
-        var TLDataContext = {
-            ual : {
-                pageview : {
-                    opttype : 'pc',
-                    content_id : '',
-                    id_type : '',
-                    nopv : 'false',
-                    mtestid : '',
-                    ss_join_id : '',
-                    ss_join_id_type : '',
-                }
-            }
-        };
-    </script>
-    <script async src="https://s.yimg.jp/images/ds/managed/1/managed-ual.min.js?tk=2ab644d5-cb64-4095-9834-861559feb79f&service=weather"></script>
-
-  
-
-  
-    
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta content="text/css" http-equiv="Content-Style-Type"/><meta content="text/javascript" http-equiv="Content-Script-Type"/><meta content="強震,きょうしん,モニタ,地震,震度,リアルタイム" name="keywords"/><meta content="地震による揺れを視覚的にリアルタイムで確認できます。緊急地震速報による到達予想円も表示します。" name="description"/><meta content="telephone=no" name="format-detection"/><meta content="summary_large_image" name="twitter:card"/><meta content="@Yahoo_weather" name="twitter:site"/><meta content="@Yahoo_weather" name="twitter:creator"/><meta content="地震による揺れを視覚的にリアルタイムで確認できます。緊急地震速報による到達予想円も表示します。" name="twitter:description"/><meta content="weather.yahoo.co.jp" name="twitter:domain"/><meta content="Yahoo!天気" name="twitter:app:name:iphone"/><meta content="Yahoo!天気" name="twitter:app:name:ipad"/><meta content="Yahoo!天気" name="twitter:app:name:googleplay"/><meta name="twitter:app:url:iphone"/><meta name="twitter:app:url:ipad"/><meta name="twitter:app:url:googleplay"/><meta content="521974902" name="twitter:app:id:iphone"/><meta content="521974902" name="twitter:app:id:ipad"/><meta content="jp.co.yahoo.android.weather.type1" name="twitter:app:id:googleplay"/><meta content="jp" name="twitter:app:country"/><meta content="リアルタイム震度（強震モニタ） - Yahoo!天気・災害" name="twitter:title"/><meta content="https://s.yimg.jp/images/weather/social/img_ogp_kyoshin.png" name="twitter:image:src"/><meta content="Yahoo!天気・災害" property="og:site_name"/><meta content="ja_JP" property="og:locale"/><meta content="https://s.yimg.jp/images/weather/social/img_ogp_kyoshin.png" property="og:image"/><meta content="リアルタイム震度（強震モニタ） - Yahoo!天気・災害" property="og:title"/><meta content="article" property="og:type"/><meta content="地震による揺れを視覚的にリアルタイムで確認できます。緊急地震速報による到達予想円も表示します。" property="og:description"/><meta content="https://typhoon.yahoo.co.jp/weather/earthquake/kyoshin/" property="og:url"/>
-  
-
-
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-
-  
-  <script type="text/javascript" async src="https://yads.c.yimg.jp/js/yads-async.js"></script>
-  
-    <link rel="shortcut icon" href="https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico" type="image/vnd.microsoft.icon"/>
-    <link rel="icon" href="https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico" type="image/vnd.microsoft.icon"/>
-    <link rel="apple-touch-icon" href="https://s.yimg.jp/images/ipn/wcb/weather129.png">
-  
-  <link rel="stylesheet" href="https://s.yimg.jp/images/weather/pc/v2/css/weatherCommon-2.3.7.css">
-  
-  <title>リアルタイム震度（強震モニタ） - Yahoo!天気・災害</title>
-  
-    
-    <script async src="https://s.yimg.jp/images/ds/yas/ya-1.6.5.min.js"></script>
-    
-    <script>
-      const uri = new URL(window.location.href);
-      const domain = uri.hostname;
-      
-      const isDeviceTypeSp = false;
-
-      if(['weather.yahoo.co.jp', 'typhoon.yahoo.co.jp', 'crisis.yahoo.co.jp'].includes(domain)) {
-        window.yacmds = window.yacmds || [];
-        window.ya = window.ya || function () {
-          yacmds.push(arguments);
-        };
-
-        if (domain === 'weather.yahoo.co.jp') {
-          if (isDeviceTypeSp) {
-            ya('init', '9738ed7226a14406a169d8392637edd9', '83d76fea-19ad-4103-835e-e7bbd10ace00');
-          } else {
-            ya('init', '88f2ec736a5c4cfc8eeca10647dc4617', '63e22516-c9b3-4f8b-9742-35f44d3cf136');
-          }
-        }
-        if (domain === 'typhoon.yahoo.co.jp') {
-          if (isDeviceTypeSp) {
-            ya('init', 'fd3c692a13844ab78c4e65c732d7f699', '4299ea63-ff11-414d-a51e-198cb54b9c44');
-          } else {
-            ya('init', '4fb1b9f2d2d3406cb99c2fa9b653b73d', 'cd716655-a5e3-4767-a74e-fafca171c443');
-          }
-        }
-        if (domain === 'crisis.yahoo.co.jp') {
-          if (isDeviceTypeSp) {
-            ya('init', '17f2e068f8e7469dbf04ca2e2d2d7ae1', 'fe1f95b0-ee15-4123-a880-a21e4b690298');
-          } else {
-            ya('init', '4e10dc9327b64bf19bbe14ae9057e3e8', '5e4ca864-dacd-4c6f-9704-2652a29326bb');
-          }
-        }
-      }
-    </script>
-  
-    <script>
-      if(window.ya) {
-        ya('hit', 'pageview');
-      }
-    </script>
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自分用 強震モニタ</title>
+  <!-- 強震モニタのレイアウト・地図表示に必要な最小限のCSS -->
   <link rel="stylesheet" href="https://s.yimg.jp/images/weather/pc/v2/css/earthquake-1.0.0.css">
   <link rel="stylesheet" href="https://s.yimg.jp/images/weather/pc/v2/css/kyoshin-1.0.1.css">
-  <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "name": "天気・災害トップ",
-          "item": "https://weather.yahoo.co.jp/weather/"
-        },{
-          "@type": "ListItem",
-          "position": 2,
-          "name": "地震情報",
-          "item": "https://typhoon.yahoo.co.jp/weather/jp/earthquake/"
-        },{
-          "@type": "ListItem",
-          "position": 3,
-          "name": "リアルタイム震度（強震モニタ）"
-        }]
-      }
-    </script>
-
-  
-  
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .earthquakeMonitor_mod {
+      background: #fff;
+      color: #333;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+  </style>
 </head>
+<body>
 
-<body class="yj950-2">
-<div id="kyoshin_wrapper">
-  <div id="header">
+  <div class="earthquakeMonitor_mod">
+    <!-- ここに地図と強震モニタ画像（Canvas/SVG等）が自動描画されます -->
+    <div class="monitor">
+      <div id="kyoshin_monitor_app"></div>
+    </div>
 
-    <span class="yj-guid"><a name="pagetop" id="pagetop"></a><img src="https://s.yimg.jp/images/clear.gif" width="1"
-                                                                  height="1" alt="このページの先頭です"></span>
-    <span class="yj-skip"><a href="#contents-start"><img src="https://s.yimg.jp/images/clear.gif" alt="このページの本文へ" width="1"
-                                                         height="1"></a></span>
-
-    
-      
-
-        <iframe id="TEMPLA_MH" style="width: 100%;height: 88px;border-width: 0;vertical-align: bottom;margin: 0 auto 10px;" src="https://s.yimg.jp/images/templa/mhdemg/v2/static_mhd.html"></iframe>
-        <script>
-            YAHOO = window.YAHOO || {};
-            YAHOO.JP = YAHOO.JP || {};
-            YAHOO.JP.templa = YAHOO.JP.templa || {};
-            YAHOO.JP.templa.param = {
-                device_id: 'pc',
-                domain: 'weather',
-                mh_logo_width: 225,
-                mh_logo_height: 34,
-                mh_logo_alt: "Yahoo!天気・災害",
-                mh_login_done: location.href,
-                mh_login_src: 'yw',
-                disable_emg1: true,
-                disable_emg2: true,
-                disable_emg3: true,
-            }
-        </script>
-        <script defer src="https://s.yimg.jp/images/templa/mhdemg/v2/templa.min.js"></script>
-    
+    <!-- 震度凡例（不要であればこのdivブロックごと削除可） -->
+    <div class="earthquakeMonitorView_legend earthquakeMonitorView_legend-point">
+      <p class="legend_ttl">リアルタイム震度</p>
+      <ul class="earthquakeMonitorView_legend_list">
+        <li class="icon_ksi icon_ksi-0"><span>震度</span>0</li>
+        <li class="icon_ksi icon_ksi-1"><span>震度</span>1</li>
+        <li class="icon_ksi icon_ksi-2"><span>震度</span>2</li>
+        <li class="icon_ksi icon_ksi-3"><span>震度</span>3</li>
+        <li class="icon_ksi icon_ksi-4"><span>震度</span>4</li>
+        <li class="icon_ksi icon_ksi-5"><span>震度</span>5</li>
+        <li class="icon_ksi icon_ksi-6"><span>震度</span>6</li>
+        <li class="icon_ksi icon_ksi-7"><span>震度</span>7</li>
+        <li class="icon_ksi icon_ksi-8"><span class="icoEpicenter_k"><span>震央</span></span>震央</li>
+      </ul>
+      <p class="bousaiLogo">
+        <img src="https://s.yimg.jp/images/weather/pc/v2/img/earthquake/img_kyoshin_bousaiLogo.png" alt="防災科学技術研究所">
+      </p>
+    </div>
   </div>
 
-  <hr class="separation">
+  <!-- 描画スクリプトの動的読み込み（現在時刻を自動セット） -->
+  <script>
+    (function() {
+      // 現在時刻をISO8601形式（+09:00）で生成
+      const now = new Date();
+      const jstOffset = 9 * 60 * 60 * 1000;
+      const jstDate = new Date(now.getTime() + jstOffset);
+      const isoJst = jstDate.toISOString().replace('Z', '+09:00');
 
-  <div id="contents">
-    <div id="contents-header">
+      const script = document.createElement('script');
+      script.src = 'https://s.yimg.jp/images/weather/js/earthquake/yjw_kyoshin-2_0_7.js';
+      script.id = 'kyoshin_lib_js'; // スクリプト内部でこのIDを参照しているため必須
+      script.setAttribute('data-t', isoJst);
+      script.setAttribute('data-wide', '1');
+      document.body.appendChild(script);
+    })();
+  </script>
 
-      
-        <div id="adrssrch" class="target_modules">
-            <div class="yjw_title_h1 yjw_clr">
-                
-                    <div class="yjw_pnts_search yjw_clr">
-                        <form action="//weather.yahoo.co.jp/weather/search/" method="get">
-                            <fieldset>
-                                <input type="text" value="" id="searchText" name="p" size="35" autocomplete="off" placeholder="地名・施設名・郵便番号を入力">
-                                <input type="submit" id="yjw_button_search" value="検索" data-cl-params="_cl_link:search;_cl_position:1;">
-                                <ul class="searchSuggestList" id="suggestList"></ul>
-                            </fieldset>
-                        </form>
-                        <script src="https://s.yimg.jp/images/weather/js/searchsuggest/yjw_address_search-1_0_4.js"></script>
-                        <script>
-                            new yjw_address_search.AddressSearch().init({
-                                domain: "https:\/\/img-weather.c.yimg.jp"
-                            });
-                        </script>
-                    </div>
-                    
-                    <p class="btn"><a class="btnPers" href="//weather.yahoo.co.jp/weather/personal/" data-cl-params="_cl_link:personal;_cl_position:1;">パーソナル天気</a></p>
-                
-            </div>
-        </div>
-    
-
-      <div id="bclst" class="target_modules">
-        
-    <div id="cat-pass">
-        <p><span class="yj-guid">現在位置：</span>
-            <a href="https://weather.yahoo.co.jp/weather/" data-cl-params="_cl_link:zenkoku;_cl_position:1;">天気・災害トップ</a> >
-            <a href="/weather/jp/earthquake/" data-cl-params="_cl_link:eq;_cl_position:1;" data-cl_cl_index="2">地震情報</a> >
-            リアルタイム震度（強震モニタ）
-        </p>
-    </div>
-
-      </div>
-
-    </div>
-
-    
-    <!-- APOLOGY_MODULE -->
-    
-    <!-- /APOLOGY_MODULE -->
-    <div id="notice-module">
-        
-    </div>
-    <noscript>
-        <div class="jsOffAlert">
-            <dl>
-                <dt>現在JavaScriptの設定が無効になっています。</dt>
-                <dd>すべての機能を利用するにはJavaScriptの設定を有効にしてください。JavaScriptの設定を変更する方法は<a href="https://support.yahoo-net.jp/noscript">こちら</a>。</dd>
-            </dl>
-        </div>
-    </noscript>
-    <!-- .earthquakeMonitor -->
-    <div class="earthquakeMonitor">
-        
-        <div class="earthquakeMonitor_mod">
-            <div class="monitor">
-                <div id="kyoshin_monitor_app"></div>
-            </div>
-            <div class="earthquakeMonitorView_legend earthquakeMonitorView_legend-point">
-                <p class="legend_ttl">リアルタイム震度</p>
-                <ul class="earthquakeMonitorView_legend_list">
-                    <li class="icon_ksi icon_ksi-0"><span>震度</span>0</li>
-                    <li class="icon_ksi icon_ksi-1"><span>震度</span>1</li>
-                    <li class="icon_ksi icon_ksi-2"><span>震度</span>2</li>
-                    <li class="icon_ksi icon_ksi-3"><span>震度</span>3</li>
-                    <li class="icon_ksi icon_ksi-4"><span>震度</span>4</li>
-                    <li class="icon_ksi icon_ksi-5"><span>震度</span>5</li>
-                    <li class="icon_ksi icon_ksi-6"><span>震度</span>6</li>
-                    <li class="icon_ksi icon_ksi-7"><span>震度</span>7</li>
-                    <li class="icon_ksi icon_ksi-8"><span class="icoEpicenter_k"><span>震央</span></span>震央</li>
-                </ul>
-                <p class="bousaiLogo"><img src="https://s.yimg.jp/images/weather/pc/v2/img/earthquake/img_kyoshin_bousaiLogo.png" alt="防災科学技術研究所"></p>
-            </div>
-            <script src="https://s.yimg.jp/images/weather/js/earthquake/yjw_kyoshin-2_0_7.js" id="kyoshin_lib_js" data-t="2026-11-20T08:06:04.097+09:00"  data-wide="1"></script>
-        </div>
-
-        <!--リアルタイム震度（強震モニタ）とは-->
-        <div class="earthquakeMonitor_whats">
-            <h2>リアルタイム震度（強震モニタ）とは</h2>
-            <p>地震による揺れを視覚的にリアルタイムで確認できるページです。<br>また、緊急地震速報による震央と揺れの到達予想円を表示します。
-            </p>
-        </div>
-        <div class="earthquakeMonitor_warn">
-            <dl>
-                <dd>地震発生時には政府機関や各自治体の発表する情報にも注意を払い、必要に応じて速やかに避難等を行ってください。必ず他の情報と併せて状況を確認するようお願い致します。</dd>
-            </dl>
-        </div>
-        <!--/リアルタイム震度（強震モニタ）とは-->
-
-        <!--リアルタイム震度（強震モニタ）の見方-->
-        <div class="earthquakeMonitor_viewpoint">
-            <h2>リアルタイム震度（強震モニタ）の見方</h2>
-            <ul class="section">
-                <li class="section_element">
-                    <h3>地図上の色の変化について</h3>
-                    <p>震源を中心として揺れが伝わっていく様子が色の変化で確認できます。<br>※地面は生活振動（車、列車、工場、工事など）のために日常的にわずかに揺れており、平常時でも色の変化があります。<br>またリアルタイムに観測データを処理しているため、ノイズや機器障害により色が変化する場合もあります。1観測点での色の変化は地震以外の理由による可能性があります。                </p>
-                    <img src="https://s.yimg.jp/images/weather/pc/v2/img/earthquake/img_kyoshin_v1.png" alt="">
-                </li>
-                <li class="section_element">
-                    <h3>P波・S波について</h3>
-                    <p>緊急地震速報が発表されると、その情報とともにＰ波・Ｓ波による揺れの到達予想円が表示されます。<br>地震が発生すると、震源から揺れが地震波となって伝わります。<br>初動であるP波の方が速く伝わりますが、後から伝わってくる主要動のS波の方が揺れが大きく、主に被害をもたらすことになります。よって、この到達予想円の広がり方から、大きな揺れの到達を予想することが可能になります。                </p>
-                    <img src="https://s.yimg.jp/images/weather/pc/v2/img/earthquake/img_kyoshin_v2.png" alt="">
-                </li>
-            </ul>
-        </div>
-        <!--/リアルタイム震度（強震モニタ）の見方-->
-
-        <!--防災リンク-->
-        <div class="earthquakeMonitor_disaster target_modules" id="bosai">
-            <div class="earthquake_prepare">
-                <a href="https://c-emg.yahoo.co.jp/notebook/contents/disaster/earthquake.html" data-cl-params="_cl_link:eq;_cl_position:1;" target="_top"><span>地震の時にとるべき行動は？</span><br>発災時の行動と備えをチェック</a>
-            </div>
-            <div class="tsunami_prepare">
-                <a href="https://c-emg.yahoo.co.jp/notebook/contents/disaster/tsunami.html" data-cl-params="_cl_link:ts;_cl_position:1;" target="_top"><span>地震の次は津波を考える</span><br>津波から身を守るためのポイント</a>
-            </div>
-        </div>
-        <!--/防災リンク-->
-
-        <!--sns-->
-        <div class="earthquakeMonitor_sns">
-            <p class="leadText">リアルタイム震度（強震モニタ）を共有する</p>
-            <div id="snsbtn" class="sns_btn target_modules">
-                <div><p class="tw"><a data-cl-params="_cl_link:tw;_cl_position:1;" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?url=https://typhoon.yahoo.co.jp/weather/earthquake/kyoshin/&text=リアルタイム震度（強震モニタ） - Yahoo!天気・災害"><span>ポスト</span></a></p></div>
-                <div><p class="fb"><a data-cl-params="_cl_link:fb;_cl_position:1;" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https://typhoon.yahoo.co.jp/weather/earthquake/kyoshin/"><span>シェア</span></a></p></div>
-            </div>
-        </div>
-        <!--/sns-->
-
-        <!--注意事項-->
-        <div class="earthquakeMonitor_precautions">
-            <h2>注意事項</h2>
-            <h3>緊急地震速報について他社と発表内容が異なる場合があります。</h3>
-            <p>弊社で発表する緊急地震速報は、気象庁が2点以上の観測点で揺れを観測して推定した緊急地震速報の情報を用いています。<br>他社サービスで1観測点のデータによって発表を行っていた場合、弊社と発表内容が異なる場合があります。</p>
-        </div>
-        <!--/注意事項-->
-
-        <!--外部リンク-->
-        <div class="earthquakeMonitor_source target_modules" id="kyoshinsrc">
-            <p>このページに関する情報は<a href="https://www.bosai.go.jp/">防災科学技術研究所</a><span class="externalLink">（外部サイト）</span>が運用する<a href="https://www.mowlas.bosai.go.jp/">MOWLAS</a><span class="externalLink">（外部サイト）</span>の発表している強震モニタの情報を元にしています。</p>
-        </div>
-        <!--/外部リンク-->
-
-    </div>
-    <!--/.earthquakeMonitor-->
-
-
-
-    
-
-  </div>
-
-  <hr class="separation">
-
-  
-    <div id="footer">
-      <div id="sf" class="target_modules">
-        <div id="addressArea">
-          <address>
-            
-            <a href="https://www.lycorp.co.jp/ja/company/privacypolicy/">プライバシーポリシー</a> -
-            <a href="https://privacy.lycorp.co.jp/ja/">プライバシーセンター</a> -
-            <a href="https://www.lycorp.co.jp/ja/company/terms/">利用規約</a> -
-            <a href="https://support.yahoo-net.jp/voc/s/weather?id=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_15_7%29+AppleWebKit%2F605.1.15+%28KHTML++like+Gecko%29+CriOS%2F157+Version%2F11.1.1+Safari%2F605.1.15">ご意見・ご要望</a> -
-            <a href="https://www.lycbiz.com/jp/service/yahoo-ads/?utm_source=yahoo&utm_medium=referral&utm_campaign=ysa_cv_link_weather_241001">広告掲載について</a> -
-            <a href="https://support.yahoo-net.jp/PccWeather/s/">ヘルプ・お問い合わせ</a><br>
-
-            
-    Copyright (C) 2026 国立研究開発法人防災科学技術研究所 <br>
-
-            &copy; LY Corporation
-          </address>
-        </div>
-      </div>
-    </div>
-  
-
-</div>
-
-    <script src="https://s.yimg.jp/l/jquery/3.7.0/jquery.min.js" type="text/javascript" charset="UTF-8"></script>
-    <script type="text/javascript" src="https://s.yimg.jp/images/weather/js/crisismap/jqueryTemplate.js" media="all"></script>
-    <script src="https://s.yimg.jp/images/weather/js/common/tabView-1_0_0.js" type="text/javascript" charset="UTF-8"></script>
-    <script src="https://s.yimg.jp/images/weather/pc/v2/js/yjw_cre_sub-1.1.js" type="text/javascript" charset="UTF-8"></script>
-
-    
-    
-        <script src="https://s.yimg.jp/images/ds/cl/ds-custom-logger-2.2.1.min.js"></script>
-        
-        <script>
-            function CustomLoggerHelper(args) {
-                this.initTargetModuleIds = args.initTargetModuleIds || [];
-                this.initViewableTargetModuleIds = args.initViewableTargetModuleIds || [];
-                this.viewableTargetModulesClassName = args.viewableTargetModulesClassName || "viewable_target_modules";
-                this.TargetModulesClassName = args.TargetModulesClassName || "target_modules";
-            };
-
-            CustomLoggerHelper.prototype.getTargetModuleIds = function() {
-                const _this = this;
-                return this.initTargetModuleIds.concat(this._getTargetIdByClassName(this.TargetModulesClassName))
-                .filter(function(id) {
-                    return _this.getViewableTargetModuleIds().indexOf(id) === -1;
-                });
-            }
-
-            CustomLoggerHelper.prototype.getViewableTargetModuleIds = function() {
-                return this.initViewableTargetModuleIds.concat(this._getTargetIdByClassName(this.viewableTargetModulesClassName));
-            }
-
-            CustomLoggerHelper.prototype._getTargetIdByClassName = function(className) {
-                const mods = document.getElementsByClassName(className);
-
-                return [].slice.call(mods)
-                .map(function(element) {
-                    return element.id;
-                })
-                .filter(function(id) {
-                    return document.getElementById(id) != null && document.getElementById(id).length !== 0;
-                });
-            }
-
-            if (typeof YAHOO === 'undefined') {
-                YAHOO = {};
-            }
-            if (typeof YAHOO.JP === 'undefined') {
-                YAHOO.JP = {};
-            }
-            if (typeof YAHOO.JP.yw === 'undefined') {
-                YAHOO.JP.yw = {};
-            }
-
-            YAHOO.JP.yw.CustomLoggerHelper = CustomLoggerHelper;
-        </script>
-    
-        <script>
-            const customLogger = new DSCustomLogger.CustomLogger();
-            customLogger.setPageData({
-                service: "weather",
-                apptype: "web",
-                opttype: "pc",
-                status: "logout"
-            });
-
-            const customLoggerHelper = new YAHOO.JP.yw.CustomLoggerHelper({
-                initTargetModuleIds: ['msthd']
-            });
-
-            const targetModules = customLoggerHelper.getTargetModuleIds();
-            const viewableModules = customLoggerHelper.getViewableTargetModuleIds();
-
-            if(targetModules.length > 0) {
-                customLogger.setModule(targetModules);
-            }
-            if(viewableModules.length > 0) {
-                customLogger.setCustomLoggerCoreConf({viewability: true});
-                customLogger.setViewableModule(viewableModules);
-            }
-        </script>
-    
-    <script>
-        customLogger.setPageData({
-            "pagetype": "top",
-            "conttype": "kyoshin"
-        })
-    </script>
-    
-        <script>
-            if (typeof YAHOO.JP === 'undefined') {
-                YAHOO.JP = {};
-            }
-            if (typeof YAHOO.JP.yw === 'undefined') {
-                YAHOO.JP.yw = {};
-            }
-            YAHOO.JP.yw.customLoggerCore = customLogger.initCustomLoggerCore();
-        </script>
-    
-    
-
-
-
-
-<script src="https://s.yimg.jp/images/weather/pc/v2/js/yjw_cre_sub-1.1.js" type="text/javascript" charset="UTF-8"></script>
 </body>
 </html>
